@@ -1,6 +1,6 @@
 # 🏢 Regime Certo — Simulador de Enquadramento Tributário
 
-Sistema web para auxiliar empreendedores a identificar o melhor regime tributário com base no faturamento anual da empresa. (MVP. sistema posterior será mais completo)
+Sistema web para auxiliar empreendedores a identificar o melhor regime tributário com base no faturamento anual da empresa. (MVP - Produto Mínimo Viável. sistema posterior será mais completo)
 
 
 ## 📋 Sobre o Projeto
