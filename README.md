@@ -12,40 +12,6 @@ O **Regime Certo** é uma aplicação full-stack simples que recebe o faturament
 - Uma **mensagem explicativa** para orientar o empreendedor
 
 
-## 🏗️ Arquitetura
-Frontend (HTML/JS)
-      │
-      │ POST /analise  { faturamento: valor }
-      ▼
-AnalysisController
-      │
-      ▼
-AnalysisService  ──►  Lógica de enquadramento
-      │
-      ▼
-AnalysisResponse  ──►  { ideal, status, mensagem }
-
-
-## 📂 Estrutura do Projeto
-
-br.com.regime.certo/
-├── RegimeCerto.java               # Classe principal (Spring Boot)
-├── controller/
-│   └── AnalysisController.java    # Endpoint REST POST /analise
-├── services/
-│   └── AnalysisService.java       # Lógica de negócio
-├── dto/
-│   ├── RevenueRequest.java        # Corpo da requisição
-│   └── AnalysisResponse.java      # Corpo da resposta
-└── model/
-    ├── RegimeEnquadrado.java      # Enum com os regimes e tetos
-    └── Status.java                # Enum: OK | ALERTA | EXCEDIDO
-
-frontend/
-└── index.html                     # Interface web
-
-
-
 ## 💼 Regimes Tributários e Limites
 
 | Regime | Teto Anual |
