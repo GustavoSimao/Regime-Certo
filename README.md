@@ -34,7 +34,8 @@ O **Regime Certo** é uma aplicação full-stack simples que recebe o faturament
 
 ## 🛠️ Tecnologias
 
-- **Backend:** Java 26 · Spring Boot · Spring Web
+- **Backend:** Java 21 · Spring Boot 3.4.5 · Spring Web · Spring Data JPA
+- **Banco de dados:** MySQL
 - **Frontend:** HTML5, CSS, JavaScript
 
 
@@ -43,13 +44,14 @@ O **Regime Certo** é uma aplicação full-stack simples que recebe o faturament
 
 ### Pré-requisitos
 
-- Java 26
+- Java 21
 - Maven
+- MySQL rodando localmente (banco: `regime_certo`)
 
 ### Backend
 bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/regime-certo.git
+git clone https://github.com/GustavoSimao/Regime-Certo.git
 cd regime-certo
 
 # Execute com Maven
