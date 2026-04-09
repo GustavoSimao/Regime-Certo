@@ -57,12 +57,8 @@ cd regime-certo
 # Execute com Maven
 ./mvnw spring-boot:run
 
+O servidor sobe em http://localhost:8080
 
-O servidor sobe em http://localhost:8080/index.html
-
-### Frontend
-
-Abra o arquivo index.html diretamente no navegador. Certifique-se de que o backend esteja rodando antes de consultar.
 
 ## 📡 API
 
