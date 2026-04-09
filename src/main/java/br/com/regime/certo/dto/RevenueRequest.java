@@ -1,6 +1,5 @@
 package br.com.regime.certo.dto;
 
-// a ação da pessoa solicitar a receita
 public class RevenueRequest {
 
     private Double faturamento;
@@ -11,4 +10,7 @@ public class RevenueRequest {
         return faturamento;
     }
 
+    public void setFaturamento(Double faturamento) {
+        this.faturamento = faturamento;
+    }
 }

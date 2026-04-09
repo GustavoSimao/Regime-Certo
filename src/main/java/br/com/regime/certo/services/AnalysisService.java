@@ -6,43 +6,46 @@ import br.com.regime.certo.model.RegimeEnquadrado;
 import br.com.regime.certo.model.Status;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class AnalysisService {
 
-    public AnalysisResponse realizarProcessamento(RevenueRequest request) {
+    public AnalysisResponse performAnalysis(RevenueRequest request) {
 
-        Double valorInserido = request.getFaturamento(); //vem do controller
+        Double revenue = request.getFaturamento();
         RegimeEnquadrado ideal;
 
-        if (valorInserido <= RegimeEnquadrado.MEI.getTeto()) {
+        if (revenue <= RegimeEnquadrado.MEI.getTeto()) {
             ideal = RegimeEnquadrado.MEI;
-        } else if (valorInserido <= RegimeEnquadrado.ME.getTeto()) {
+        } else if (revenue <= RegimeEnquadrado.ME.getTeto()) {
             ideal = RegimeEnquadrado.ME;
-        } else if (valorInserido <= RegimeEnquadrado.EPP.getTeto()) {
+        } else if (revenue <= RegimeEnquadrado.EPP.getTeto()) {
             ideal = RegimeEnquadrado.EPP;
         } else {
-            ideal = RegimeEnquadrado.FORA_DO_ESCOPO;
+            return new AnalysisResponse(
+                    RegimeEnquadrado.FORA_DO_ESCOPO,
+                    Status.EXCEDIDO,
+                    "Faturamento acima do limite permitido pelo Simples Nacional. Recomendamos buscar um contador."
+            );
         }
 
-        double porcentagem = valorInserido / ideal.getTeto();
-
+        double percentage = revenue / ideal.getTeto();
+        String formattedPercentage = String.format("%.2f", percentage * 100).replace(".", ",");
         Status status;
-        String mensagem;
+        String message;
 
-        if (porcentagem < 0.70) {
+        if (percentage < 0.70) {
             status = Status.OK;
-            mensagem = "De acordo com seu faturamento atual, você não atingiu nem 70% do total ideal";
-        } else if (porcentagem <= 1.0) {
+            message = "Você atingiu " + formattedPercentage + "% do limite de R$ "
+                    + String.format("%.2f", ideal.getTeto()) + ". Está dentro do permitido.";
+        } else if (percentage <= 1.0) {
             status = Status.ALERTA;
-            mensagem = "De acordo com seu faturamento atual, você já aintiu 70% ou mais da quantidade total de faturamento permitido";
+            message = "ATENÇÃO! Você já atingiu " + formattedPercentage + "% do limite de R$ "
+                    + String.format("%.2f", ideal.getTeto()) + ". Fique de olho no seu faturamento.";
         } else {
             status = Status.EXCEDIDO;
-            mensagem = "Seu faturamento já atingiu o teto permitido. Procure um contador";
-
+            message = "Seu faturamento excedeu o limite permitido. Procure um contador urgentemente.";
         }
 
-        return new AnalysisResponse(ideal, status, mensagem);
+        return new AnalysisResponse(ideal, status, message);
     }
-
 }

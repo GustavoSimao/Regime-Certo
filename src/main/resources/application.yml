@@ -1,1 +1,23 @@
-spring.application.name=regime.certo
+spring:
+  application:
+    name: regime.certo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/regime_certo?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+  open-in-view: false
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
