@@ -7,15 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/analise")
+@RequestMapping("/analysis")
 @CrossOrigin(origins = "*")
 public class AnalysisController {
 
     @Autowired
     AnalysisService analysisService;
 
-    @PostMapping
-    public AnalysisResponse analyze(@RequestBody RevenueRequest request) {
-        return analysisService.performAnalysis(request);
-    }
 }

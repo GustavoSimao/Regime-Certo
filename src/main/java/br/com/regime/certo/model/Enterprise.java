@@ -32,13 +32,9 @@ public class Enterprise {
 
     public Enterprise() {}
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public String getNomeFantasia() {
-        return nomeFantasia;
-    }
+    public String getNomeFantasia() { return nomeFantasia; }
 
     public void setNomeFantasia(String nomeFantasia) {
         this.nomeFantasia = nomeFantasia;
@@ -96,4 +92,5 @@ public class Enterprise {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

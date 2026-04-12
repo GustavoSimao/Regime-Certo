@@ -2,6 +2,7 @@ package br.com.regime.certo.services;
 
 import br.com.regime.certo.dto.AnalysisResponse;
 import br.com.regime.certo.dto.RevenueRequest;
+import br.com.regime.certo.exception.BusinessException;
 import br.com.regime.certo.model.RegimeEnquadrado;
 import br.com.regime.certo.model.Status;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,10 @@ import org.springframework.stereotype.Service;
 public class AnalysisService {
 
     public AnalysisResponse performAnalysis(RevenueRequest request) {
+
+        if (request.getFaturamento() == null || request.getFaturamento() <= 0) {
+            throw new BusinessException("Faturamento invalido ou não informado");
+        }
 
         Double revenue = request.getFaturamento();
         RegimeEnquadrado ideal;
