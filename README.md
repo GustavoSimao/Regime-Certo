@@ -19,7 +19,9 @@ recomendação de contadores por localização
 O código é público sob licença MIT. Os dados coletados, sempre com consentimento, serão utilizados de forma agregada e anonimizada para análises futuras.
 
 💼 Regimes Tributários e Limites
-Regime	Teto Anual
+
+Regime — Teto Anual
+
 MEI — Microempreendedor Individual	R$ 81.000,00
 ME — Microempresa	R$ 360.000,00
 EPP — Empresa de Pequeno Porte	R$ 4.800.000,00
@@ -27,6 +29,7 @@ Empresa de Grande Porte	Acima do EPP
 
 
 🚦 Status do Faturamento
+
 Status	Condição	Significado
 OK	< 70% do teto	Faturamento confortável
 ALERTA	70% a 100% do teto	Atenção ao limite
